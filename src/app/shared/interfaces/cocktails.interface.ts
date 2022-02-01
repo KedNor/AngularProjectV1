@@ -1,8 +1,8 @@
-import { Ingredient } from "./ingredient.interface";
+import { Ingredient } from './ingredient.interface';
 
 export interface Cocktail {
   name: string;
   img: string;
   description: string;
-  ingredients? :  Ingredient[];
+  ingredients: Ingredient[];
 }
