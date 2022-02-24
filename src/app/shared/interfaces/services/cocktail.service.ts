@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
+import { CocktailContainerComponent } from "src/app/cocktail-container/cocktail-container.component";
 import { Cocktail } from "../cocktails.interface";
 
 @Injectable({ providedIn: "root" })
@@ -45,6 +46,11 @@ export class CocktailService {
 
   public getCocktail(index: number) {
     return this.cocktails$.value[index];
+  }
+
+  public addCocktail(cocktail : Cocktail): void {
+    const value = this.cocktails$.value;
+    this.cocktails$.next([...value,cocktail])
   }
 
   constructor() {}

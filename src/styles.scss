@@ -37,6 +37,7 @@ body {
   max-width: 1200px;
   display: block;
   margin: auto;
+  padding: 20px;
 }
 .d-flex {
   display: flex;
@@ -150,15 +151,19 @@ body {
   border: 0;
   border-radius: 3px;
   font-weight: 700;
+  cursor: pointer;
   &-primary {
     background-color: var(--primary);
     color: white;
-    cursor: pointer;
+    &:hover {
+      background-color: var(--secondary);
+    }
+    transition: background-color 0.4s;
   }
-  &:hover {
-    background-color: var(--secondary);
+  &-secondary {
+    background-color: var(--accent);
+    color: white;
   }
-  transition: background-color 0.4s;
 }
 
 .log {
@@ -170,4 +175,20 @@ body {
 .active {
   background-color: var(--secondary);
   color: white;
+}
+
+input {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 8px 15px;
+}
+
+hr {
+  margin: 20px 0px;
+  border-top: 1px solid #ddd;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

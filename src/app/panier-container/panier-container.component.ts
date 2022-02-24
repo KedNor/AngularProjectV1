@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Ingredient } from '../shared/interfaces/ingredient.interface';
+import { PanierService } from '../shared/interfaces/services/panier.service';
 
 @Component({
   selector: 'app-panier-container',
@@ -6,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./panier-container.component.scss']
 })
 export class PanierContainerComponent implements OnInit {
+  public ingredients: Ingredient[] | null = null;
+  public subscription?: Subscription;
 
-  constructor() { }
+  constructor(private panierService: PanierService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.subscription = this.panierService.ingredients$.subscribe(
+      (ingredients: Ingredient[] | null) => (this.ingredients = ingredients)
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
   }
 
 }
