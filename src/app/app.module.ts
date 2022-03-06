@@ -11,12 +11,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PanierContainerComponent } from './panier-container/panier-container.component';
 import { IngredientListComponent } from './panier-container/ingredient-list/ingredient-list.component';
 import { RouterModule } from '@angular/router';
-import { APP_ROUTES} from './app.routes';
+import { APP_ROUTES } from './app.routes';
 import { CocktailFormComponent } from './cocktail-container/cocktail-form/cocktail-form.component';
 import { PanierService } from './shared/interfaces/services/panier.service';
+import { FilterPipe } from './shared/pipes/filter.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule,ReactiveFormsModule, RouterModule.forRoot(APP_ROUTES)],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(APP_ROUTES),
+    HttpClientModule,
+  ],
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -27,6 +35,7 @@ import { PanierService } from './shared/interfaces/services/panier.service';
     PanierContainerComponent,
     IngredientListComponent,
     CocktailFormComponent,
+    FilterPipe,
   ],
   bootstrap: [AppComponent],
   providers: [PanierService],

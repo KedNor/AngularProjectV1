@@ -4,9 +4,8 @@ import { Ingredient } from '../ingredient.interface';
 
 @Injectable({ providedIn: 'root' })
 export class PanierService {
-  public ingredients$: BehaviorSubject<
-    Ingredient[] | null
-  > = new BehaviorSubject<Ingredient[] | null>(null);
+  public ingredients$: BehaviorSubject<Ingredient[] | null> =
+    new BehaviorSubject<Ingredient[] | null>(null);
 
   constructor() {}
 
@@ -24,9 +23,9 @@ export class PanierService {
         },
         {}
       );
-      const result = Object.keys(obj).map(key => ({
+      const result = Object.keys(obj).map((key) => ({
         name: key,
-        quantity: obj[key]
+        quantity: obj[key],
       }));
       this.ingredients$.next(result);
     } else {

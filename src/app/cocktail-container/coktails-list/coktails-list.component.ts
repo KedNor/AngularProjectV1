@@ -8,9 +8,8 @@ import { Cocktail } from 'src/app/shared/interfaces/cocktails.interface';
 })
 export class CoktailsListComponent implements OnInit {
   @Input() public cocktails?: Cocktail[];
-
+  public search = '';
   constructor() {}
 
   ngOnInit(): void {}
-
 }
