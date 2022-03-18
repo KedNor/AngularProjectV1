@@ -1,22 +1,21 @@
-import { Routes } from "@angular/router";
-import { CocktailContainerComponent } from "./cocktail-container/cocktail-container.component";
-import { CocktailFormComponent } from "./cocktail-container/cocktail-form/cocktail-form.component";
-import { CocktailsDetailsComponent } from "./cocktail-container/coktails-details/coktails-details.component";
-import { PanierContainerComponent } from "./panier-container/panier-container.component";
+import { Routes } from '@angular/router';
+import { CocktailContainerComponent } from './features/cocktail/cocktail-container/cocktail-container.component';
+import { CocktailFormComponent } from './features/cocktail/cocktail-container/cocktail-form/cocktail-form.component';
+import { CocktailsDetailsComponent } from './features/cocktail/cocktail-container/coktails-details/coktails-details.component';
+import { PanierContainerComponent } from './features/panier/panier-container/panier-container.component';
 
 export const APP_ROUTES: Routes = [
-  { path: "", redirectTo: "cocktails", pathMatch: "full" },
+  { path: '', redirectTo: 'cocktails', pathMatch: 'full' },
   {
-    path: "cocktails",
+    path: 'cocktails',
     component: CocktailContainerComponent,
     children: [
-      { path: "new", component: CocktailFormComponent },
-      { path: ":index/edit", component: CocktailFormComponent },
+      { path: 'new', component: CocktailFormComponent },
+      { path: ':index/edit', component: CocktailFormComponent },
 
-      { path: ":index", component: CocktailsDetailsComponent },
-      { path: "", redirectTo: "0", pathMatch: "full" }
-    ]
+      { path: ':index', component: CocktailsDetailsComponent },
+      { path: '', redirectTo: '0', pathMatch: 'full' },
+    ],
   },
-  { path: "panier", component: PanierContainerComponent }
+  { path: 'panier', component: PanierContainerComponent },
 ];
-

@@ -3,40 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { CoktailsListComponent } from './cocktail-container/coktails-list/coktails-list.component';
-import { CocktailsDetailsComponent } from './cocktail-container/coktails-details/coktails-details.component';
-import { CocktailContainerComponent } from './cocktail-container/cocktail-container.component';
 import { SelectedDirective } from './shared/interfaces/directives/selected.directive';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PanierContainerComponent } from './panier-container/panier-container.component';
-import { IngredientListComponent } from './panier-container/ingredient-list/ingredient-list.component';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
-import { CocktailFormComponent } from './cocktail-container/cocktail-form/cocktail-form.component';
 import { PanierService } from './shared/interfaces/services/panier.service';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { CocktailModule } from './features/cocktail/cocktail.module';
+import { PanierModule } from './features/panier/panier.module';
 
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
+    CocktailModule,
+    PanierModule,
   ],
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    CoktailsListComponent,
-    CocktailsDetailsComponent,
-    CocktailContainerComponent,
-    SelectedDirective,
-    PanierContainerComponent,
-    IngredientListComponent,
-    CocktailFormComponent,
-    FilterPipe,
-  ],
+  declarations: [AppComponent, HeaderComponent, SelectedDirective],
   bootstrap: [AppComponent],
   providers: [PanierService],
 })

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { Cocktail } from '../shared/interfaces/cocktails.interface';
-import { CocktailService } from '../shared/interfaces/services/cocktail.service';
+import { Cocktail } from 'src/app/shared/interfaces/cocktails.interface';
+import { CocktailService } from 'src/app/shared/interfaces/services/cocktail.service';
 
 @Component({
   selector: 'app-cocktail-container',

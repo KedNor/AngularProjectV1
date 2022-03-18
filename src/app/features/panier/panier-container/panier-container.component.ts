@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Ingredient } from '../shared/interfaces/ingredient.interface';
-import { PanierService } from '../shared/interfaces/services/panier.service';
+import { Ingredient } from 'src/app/shared/interfaces/ingredient.interface';
+import { PanierService } from 'src/app/shared/interfaces/services/panier.service';
 
 @Component({
   selector: 'app-panier-container',
   templateUrl: './panier-container.component.html',
-  styleUrls: ['./panier-container.component.scss']
+  styleUrls: ['./panier-container.component.scss'],
 })
 export class PanierContainerComponent implements OnInit {
   public ingredients: Ingredient[] | null = null;
@@ -23,5 +23,4 @@ export class PanierContainerComponent implements OnInit {
   ngOnDestroy() {
     this.subscription?.unsubscribe();
   }
-
 }
